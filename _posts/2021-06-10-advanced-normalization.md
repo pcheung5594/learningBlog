@@ -21,7 +21,7 @@ Normalization of Database Design is created to solve two major issues of the dat
 
 Some other things to keep in mind:
 - Normal Form is dependent to their previous Form (e.g. 2NF is a dependent of 1NF).
-![Normal Form Train](/img/nf_train.PNG)
+![Normal Form Train](../../../../img/nf_train.PNG)
 - Some Database, especially OLAP may intentionally violate the normal form to help boost their performance, which is called **denormalization**.
 
 ### Normal Form Types
