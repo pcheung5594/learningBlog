@@ -12,3 +12,5 @@ node_modules
 */.DS_Store
 */*/.DS_Store
 vendor/bundle/*
+**/*.xlsx
+_config.yml

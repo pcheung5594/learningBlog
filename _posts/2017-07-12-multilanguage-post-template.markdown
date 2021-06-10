@@ -6,11 +6,9 @@ date:         2017-07-12 12:00:00
 author:       "PC"
 header-img:   "img/photo-with-title.png"
 header-mask:  0.3
+hidden: true
 catalog:      true
 multilingual: true
-tags:
-    - Web
-    - PWA
 ---
 
 <!-- Chinese Version -->

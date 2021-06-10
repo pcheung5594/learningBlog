@@ -3,6 +3,10 @@
 License
 -------
 
+Install package by running `bundle install`.
+
+Starting server by running `bundle exec jekyll serve`.
+
 Apache License 2.0.
 PCL Blog is derived from [Hux Blog](https://huangxuan.me)
 Copyright (c) 2015-present Huxpro
