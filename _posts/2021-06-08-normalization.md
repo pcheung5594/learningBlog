@@ -20,9 +20,9 @@ Normalization of Database Design is created to solve two major issues of the dat
 2. Eliminate Anomaly Data, ensuring data quality (especially from CRUD action)
 
 Some other things to keep in mind:
-- Normal Form is dependent to their previous Form (e.g. 2NF is a dependent of 1NF).
+- Normal Form is dependent on its previous form (e.g. 2NF is a dependent of 1NF).
 ![Normal Form Train](../../../../img/nf_train.PNG)
-- Some Database, especially OLAP may intentionally violate the normal form to help boost their performance, which is called **denormalization**.
+- Some Databases, especially OLAP may intentionally violate the normal form to help boost their performance, which is called **denormalization**.
 
 ### Normal Form Types
 1. [First Normal Form (1NF)](#first-normal-form)
@@ -32,41 +32,41 @@ Some other things to keep in mind:
 
 #### First Normal Form
 
-By meeting the follow 4 rules, the table will be in the 1NF:
+By meeting the following 4 rules, the table will be in the 1NF:
 - Only Atomic values are stored. It should not contain merged columns or attributes.
 - Columns should be with unique names.
-- Every rows should be unique identifier (best way will be adding a Primary Key).
+- Every row should be a unique identifier (the best way will be adding a Primary Key).
 
-Let's start with a quick falsety example of NF1, the follow example consist of multiple values on the name column and having different domain (`major`) included in the same table.
+Let's start with a quick falsity example of NF1. The following example consists of multiple values on the name column and having different domains (`major`) included in the same table.
 ![Falsety NF1](../../../../img/NF1_falsety.PNG)
 
-By seperating the name column into first and last name, it has ensured the data will be able to retreived or stored atomically, which will fit well for NF1.
+By separating the name column into first and last name, it has ensured the data will be able to retrieve or stored atomically, which will fit well for NF1.
 ![NF1 1 example](../../../../img/NF1_1.PNG)
 
 #### Second Normal Form
 
-As mentioned above, there are dependency between higher form of normalization. Therefore, NF2 will be adding on top of the NF1 with new rules:
+As mentioned above, there are dependencies between the higher form of normalization. Therefore, NF2 will be adding on top of the NF1 with new rules:
 - Table must be already in NF1.
-- Domain Specific in each table, (e.g. `major` should be seperated from personal information).
-- All columns are dependent of the primary key column of the table (, in this case it is `student_id`).
+- Domain-Specific in each table, (e.g. `major` should be separated from personal information).
+- All columns are dependent on the primary key column of the table (, in this case, it is `student_id`).
 
-By seperating out the `major` columns from the `Student` table, it will meet the rules of NF2.
+By separating the `major` columns from the `Student` table, it will meet the rules of NF2.
 ![NF2 1 example](../../../../img/NF2_1.PNG)
 ![NF2 2 example](../../../../img/NF2_2.PNG)
 
 #### Third Normal Form
 
-In the image above, the `department_head` is depending on the `major`, which is very odd, as it is relating on a non-prime attribute. This is called a **transitive dependency**, which may lead to issue of data duplication. Therefore, the Third Normal Form will be adding new rules:
+In the image above, the `department_head` is depending on the `major`, which is very odd, as it is relating to a non-prime attribute. This is called a **transitive dependency**, which may lead to the issue of data duplication. Therefore, the Third Normal Form will be adding new rules:
 - Table must be already in NF2
 - No Transitive Dependency
     - , which means should not be having a non-prime attribute depending on another non-prime attribute this is **transitive dependent**.
 
-By seperating out the `department_head` into its own table `department` will meet the rules of NF3.
+By separating the `department_head` into its own table `department`, it will meet the rules of NF3.
 ![NF3 2 example](../../../../img/NF3_3.PNG)
 
 #### BCNF
 
-Actually, BCNF is also part of the NF3. As you can see, it is quite weird that why `major` is attached with the `student_id`. When we only want to check for the `major` only, it will not work very well. That's why we need NF3.5 which also dependent on NF3:
+BCNF is also part of the NF3. As you can see, it is quite weird that why `major` is attached with the `student_id`. When we only want to check for the `major` it will not work very well. That's why we need NF3.5 which also dependent on NF3:
 - Table must be already in NF3.
 - For a dependency of A -> B, A cannot be a non-prime attribute when B is a prime attribute.
 
@@ -74,7 +74,7 @@ Therefore, in the last image of NF2, having the `major` depending on `student_id
 ![NF3 1 example](../../../../img/NF3_1.PNG)
 ![NF3 2 example](../../../../img/NF3_2.PNG)
 
-Most of the time, the basic Normal Form ends here. Fourth and Fifth Normal Form are not always covered from the text book, but I think it is good to cover here to help understand the best Practice of this art piece. I do think they are widely used, but not said as often as the other 3+BCNF. For more info please see [ Advanced database normalization](/2021/06/10/advanced-normalization/)
+Most of the time, the basic Normal Form ends here. Fourth and Fifth Normal Form are not always covered from the textbook, but I think it is good to cover here to help understand the best practice of this art piece. I do think they are widely used, but not said as often as the other 3+BCNF. For more info please see [ Advanced database normalization](/2021/06/10/advanced-normalization/)
 
 ### Word List
 
